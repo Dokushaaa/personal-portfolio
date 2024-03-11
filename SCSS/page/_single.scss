@@ -1,0 +1,41 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+.single__banner{
+    margin-top: 2.5rem;
+    img{
+        @include imgCover(400px, 100%);
+        @include mediaQuery{
+            @include imgCover(600px, 100%);
+        }
+    }.single__banner__wrapper{
+        @include mediaQuery{
+            margin-bottom: 5rem;
+            @include grid(2, 5rem);
+        }
+    }
+    .single__banner__article{
+        @include mediaQuery{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p{
+            margin-bottom: 0;
+        }
+    }
+    }
+}
+article{
+    margin-bottom: 5rem;
+    figure{
+        margin-bottom: 2rem;
+        img{
+            @include imgCover(500px, 100%);  
+        }
+    }figcaption{
+        font-size: 1.2rem;
+        
+    }
+}

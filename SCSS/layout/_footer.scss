@@ -1,54 +1,67 @@
 @use '../abstract/' as *;
-
 .footer{
-    //space for footer section:
-    background-color: $clr-primary;
-    padding: 5rem 0;
     &__wrapper{
         @include mediaQuery{
-        display: flex;
-        justify-content: space-between;
+            @include grid(2,5rem);
+    
         }
-        //space for wrapper section
-        .footer__action{
-            //space for footer__action
-            margin-bottom: 4rem;
-            display: grid;
-            @include grid(2);
+    }
+    &__links{
+        @include mediaQuery{
+            @include d-flex;
+            gap:5rem;
+            justify-self: flex-end;
+        li,h4{
+            text-align: right;
+        }li{
+            margin-bottom: .5rem;
+            font-size: 1.4rem;
+        }
+    }
+}
+    margin-top: 3rem;
+    &__form{
+        margin-bottom: 2rem; 
+        h3{
+            margin-top: 2rem;
+        }
+        form{
+            position: relative;
+            input{
+                width:100%;
+                padding:1rem .5rem;
+                border: none;
+                border-bottom: 1px solid $clr-dark;
+            }
+            button{
+                position: absolute;
+                right: 0;
+                top:1rem;
+                background: transparent;
+                border:none;
+                text-transform: uppercase;
+            }
+        }
+    }&__bottom{
+        text-align: center;
+        font-size: 1.2rem;
+        opacity: 0.3;
+        padding: 0.5rem 0;
+        ul li:nth-last-child(-n+2) {
+            display: none;
             @include mediaQuery{
-                @include grid(4);
-            }
-           
-            gap:2rem;
-            img{
-                justify-self: center;
-            }
-            ul{
-                list-style: none;
-                li{
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                }
-                li img{
-                    width: 80%;
-                    margin-bottom: 1rem;
-                }
-            }
-        }
-       
-        
-        .footer__connect{
-        ul{
-            list-style: none;
-            display: flex;
-            gap:3rem;
-            i{
-                font-size: 2.5rem;
-                color: $clr-accent;
-                
-            }
+                margin-top: 2rem;
+                display:block;
             }
 
-        }     
-    } 
+        }
+        @include mediaQuery{
+            @include d-flex(space-between, center);
+            ul{
+                @include d-flex(space-between, center);
+                gap:2rem;
+            }
+        }
+
+    }
 }

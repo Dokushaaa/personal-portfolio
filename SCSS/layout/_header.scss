@@ -1,53 +1,81 @@
 @use "../abstract/" as *;
 
-.header {
-    &__wrapper {
-    ul.open {
-        transition: .5s ease;
-        visibility: visible;
-        opacity: 1;
-        
-    }
-    .main__menu{
-        z-index: 999999;
-    }
-    
-    ul {
-        @include mediaQuery {
-            position: static;
-            background-color: unset;
-            padding: unset;
-            width: auto;
-            height: unset;
-            flex-direction: row;
+.header{
+
+    padding: 1.25rem 0;
+    box-shadow: 2.5px 5px #888888;
+    &__wrapper{
+      
+        ul.open {
+            transition: .5s ease;
             visibility: visible;
             opacity: 1;
-       
-            li {
-                a {
-                font-size: 1.6rem!important;
+            
+            
+        }
+        ul{
+            @include mediaQuery {
+                color:$clr-dark;
+                padding: unset;
+                position: static;
+                background-color: unset;
+                width: auto;
+                height: unset;
+                flex-direction: row;
+                visibility: visible;
+                opacity: 1;
+                z-index: 99999;
+                li {
+                    
+                    a {
+                    font-size: 1.6rem!important;
+                    
+                    }
                 }
             }
+            position: fixed;
+            background: #fff;
+            top: 7.5rem;
+            left:0;
+            width: 100%;
+            height: 100vh;
+            z-index: 99999999;
+            flex-direction: column;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            padding-top: 20rem;
+            li {
+                
+             text-align: center;
+             a {
+                
+                font-size: 3rem;
+                color: $clr-dark;
+                // color: $clr-light;
+               
+             }
+            }
         }
-        position: fixed;
-        background: #000;
-        top: 5rem;
-        left:0;
-        width: 100%;
-        height: 100vh;
-        z-index: 99999;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 20%;
-        margin-top: 4rem;
-        visibility: hidden;
-        opacity: 0;
-        li {
-         text-align: center;
-         a {
-            font-size: 3rem;
-         }
+        
+        // padding: 1.5rem 0;
+        margin-bottom: 1rem;
+        a{
+            
+            font-size: 2rem;
+            font-weight: 500;
+        }
+        @include d-flex(space-between,center);
+        button{
+            font: size 2rem;
+            border: none;
+            background: transparent;
+            .barbar{
+                color: $clr-dark;
+                font-size: 3rem;
+                visibility: visible;
+
+            }
         }
     }
-}
 }

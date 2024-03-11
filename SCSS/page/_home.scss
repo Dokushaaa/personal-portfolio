@@ -3,149 +3,99 @@
 @use "../components/" as *;
 @use "../layout/" as *;
 
+
 .banner{
-    &__wrapper{
-        min-height: 80rem;
-        @include d-flex(flex-start,center);
-    }
-    small{
-        font-size: clamp(6rem, 6vw,10rem);
-        font-weight: bold;
-        opacity: 0.6;
-    }
-    h1{
-        font-size: clamp(8rem, 6vw,15rem);
-        line-height: 1;
-        text-transform: uppercase;
-        @include d-flex(flex-start, flex-end);
-        span{
-            display: block;
-            width: 1.8rem;
-            height: 1.8rem;
-            background-color:$clr-accent;
-            margin-bottom:0;
-            transform: translate(2rem,-2rem);
-        }
-    }
- 
-   
-}
-.about{ 
-
-    &__wrapper{
-        @include unevenGrid(.5fr 1fr, 7rem);
-       
-      
-    }
-        &__image{
-            position: relative;
-            isolation: isolate;
-            &::after{
-                content: ' ';
-                position: absolute;
-                top:10rem;
-                left: 3rem;
-                border: 0.4rem solid $clr-accent;
-                background-color:$clr-primary;
-                width: 100%;
-                height: 85%;
-                display: block;
-                z-index: -1;
-            }
-        }
-        &__contact{
-            @include grid(2);
-            
-            
-        }
-    }
-.skills{
-    &__wrapper{
-        @include grid(2);
-        grid-gap: 10rem;
-        
-           
-    }
-    .skillbar{
-        width: 100%;
-        height: 1.5rem;
-        background-color:#363636;
-        position: relative;
-        &::before{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 90%;
-            height: 100%;
-            background-color: $clr-accent;
-
-        }
-    }.skillbar.w-50::before{
-        width: 50%;
-    
-    }.skillbar.w-45::before{
-        width: 45%;
-    }
-    .skillbar.w-51::before{
-        width: 51%;
-    }
-    .skillbar.w-49::before{
-        width: 49%;
-    }
-    .skillbar.w-99::before{
-        width: 99%;
-    }
-}
-.portfolio{
-    
-    &__img{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap:5rem;
-       
-    }
     img{
-        width: 20rem;
-        height: 20rem;
-     
+        @include imgCover(300px, 100%);
     }
-   
+p{
+    display: none;
 }
-.services{
+@include mediaQuery{
+    .banner__wrapper{
+        @include unevenGrid(2fr 1fr,2rem);
+        
+       
+    }
+    &__main{
+        padding-right: 1rem;
+        padding-right:2rem;
+        border-right: 1px solid $clr-dark;
+        img{
+            margin-top: 3rem;
+            height: 50rem;
+        }
+    }&__side{
+        margin-top:3rem;
+       
+        img{
+            height:20rem;
+           
+        }
+        p{
+            display:none !important;
+        }
+    }
+}
+    p{
+        display:block;
+    }
+
+}
+.trending{
+    &__slider{
+        img{
+            width: 45rem;
+        }
+    }
+}
+.articles{
+    @include mediaQuery{
+        &__card{
+            @include d-flex;
+            gap:5rem
+        }
+    }
+}
+.cta{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border-top: 1px solid $clr-dark;
+    border-bottom: 1px solid $clr-dark;
+    padding: 5rem 0;
     &__wrapper{
-        @include grid(3);
-        grid-gap:7.5rem;
+        p{
+            margin-bottom: 2rem;
+        }
+    }
+    ul{
+        @include d-flex(center, center);
+        flex-direction: column;
         @include mediaQuery{
-            @include grid(2);
+            flex-direction: row;
+            gap:3rem;
+        }
+    }
+    li{
+        width: 100%;
+        @include mediaQuery{
+            width:unset;
+        }
+    }
+    a{
+        height: auto;
+        font-size: 1.2rem;
+        min-width: 120px;
+        padding: 1.5rem;
+        background-color: $clr-dark;
+        color: $clr-light;
+        font-size: 1.5rem;
+        display: block;
+        margin-bottom: 1rem;
+        @include mediaQuery{
+            display: inline-block;
         }
         
     }
-    &__card{
-        i{
-            color:$clr-accent;
-            font-size: 5rem;
-
-        }h5{
-            font-size: 2rem;
-        }
-    }
+  
 }
-.contact{
-    &__wrapper{
-        @include grid(3);
-        grid-gap: 4rem;
-    }
-}
-.footer{
-    &__wrapper{
-        @include mediaQuery{
-            
-        }
-        span{
-            color: blue;
-        }
-    }
-}
-

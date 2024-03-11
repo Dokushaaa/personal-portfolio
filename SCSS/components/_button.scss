@@ -1,6 +1,6 @@
 @use '../abstract/' as *;
 .btn{
-    background: $clr-primary;
+    background: $clr-dark;
     padding:1.5rem,2.5rem;
     margin: 2rem 0;
     font-weight: bold;
@@ -10,16 +10,14 @@
     font-family: Speedee-Bold;
     @include d-flex(center, center);
         &:hover{
-            background: darken($clr-primary,20);
+            background: darken($clr-light,20);
         }
     &-primary{
-        background: $clr-primary;
+        background: $clr-light;
     }
     $colorsbtn:(
-    "primary": $clr-primary,
-    "accent": $clr-accent,
-    "white": $clr-white,
-    "secondary": $clr-secondary,
+        "light": $clr-light,
+        "dark": $clr-dark
 );
 //color classes assigner ex: class="container bg-yellow"
 @each $key, $val in $colorsbtn{
