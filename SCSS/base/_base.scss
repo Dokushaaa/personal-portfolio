@@ -78,5 +78,13 @@ h4{
 ul{
     list-style: none;
 }
+img{
+    filter: brightness(50%);
+    &:hover{
+        filter: brightness(100%);
+        transform: scale(1.025); 
+    }
+
+}
 
     
